@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+void inverteString(char *str, int inicio, int fim) {
+    if (inicio >= fim) {
+        return;
+    }
+       char temp = str[inicio];
+    str[inicio] = str[fim];
+    str[fim] = temp;
+    
+    inverteString(str, inicio + 1, fim - 1);
+}
+
+int main() {
+    char str[100]; // Buffer para a string
+    
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);
+    
+    if (str[strlen(str) - 1] == '\n') {
+        str[strlen(str) - 1] = '\0';
+    }
+    
+    int comprimento = strlen(str);
+    
+    inverteString(str, 0, comprimento - 1);
+    printf("String invertida: %s\n", str);
+    
+    return 0;
+}
