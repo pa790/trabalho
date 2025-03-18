@@ -1,0 +1,23 @@
+#include <stdio.h>
+int somaDigitos(int n) {
+    // Caso base: se o número for menor que 10, retorna ele mesmo
+    if (n < 10) {
+        return n;
+    }
+    return (n % 10) + somaDigitos(n / 10);
+}
+
+int main() {
+    int numero;
+    
+    printf("Digite um número inteiro positivo: ");
+    scanf("%d", &numero);
+    if (numero < 0) {
+        printf("Por favor, digite um número positivo!\n");
+    } else {
+        int resultado = somaDigitos(numero);
+        printf("A soma dos dígitos de %d é %d\n", numero, resultado);
+    }
+    
+    return 0;
+}
